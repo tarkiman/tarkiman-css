@@ -1,0 +1,89 @@
+
+<!-- REFF : https://tympanus.net/codrops/2014/07/23/notification-styles-inspiration/ -->
+<!-- REFF : https://tympanus.net/Development/NotificationStyles/ -->
+<!-- REFF : https://github.com/codrops/NotificationStyles -->
+<html>
+  <head>
+    <title>NotificationFx</title>
+    <!-- Notifikasi -->
+    <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/NotificationStyles/css/ns-default.css" />
+    <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/NotificationStyles/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/NotificationStyles/css/ns-style-growl.css" />
+    <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/NotificationStyles/css/ns-style-other.css" />
+    <link rel="stylesheet" type="text/css" href="https://tympanus.net/Development/NotificationStyles/css/demo.css" />    
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway:400,300,700" />
+    <style>
+        .ns-effect-jelly {
+            background: #df3840 !important;
+        }
+        
+        .ns-box{
+            color:#fff;
+        }
+        
+        .ns-effect-jelly .ns-close::before, .ns-effect-jelly .ns-close::after {
+            background: #fff;
+        }
+    </style>
+    <!-- Notifikasi -->
+    
+
+    <style>
+      body:before{
+        content: 'PREVIEW ONLY';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 99;        
+        color: #0d745e;
+        font-size: 100px;
+        font-weight: 500px;
+        display: grid;
+        justify-content: center;
+        align-content: center;
+        opacity: 0.2;
+        transform: rotate(-45deg);
+      }
+    </style>
+
+  </head>
+<body>
+
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- Notifikasi -->    
+    <script src="notification/js/modernizr.custom.js"></script>
+    <script src="notification/js/classie.js"></script>
+    <script src="notification/js/notificationFx.js"></script>
+    <!-- Notifikasi -->
+    <script type="text/javascript">
+        // Notifikasi 
+        function notif(message){
+          var notification = new NotificationFx({
+            message : '<p>'+message+'</p>',
+            layout : 'growl',
+            effect : 'slide',            
+            // effects for the specified layout:
+            // for growl layout: scale|slide|genie|jelly
+            // for attached layout: flip|bouncyflip
+            // for other layout: boxspinner|cornerexpand|loadingcircle|thumbslider
+            type : 'notice', // notice, warning or error
+            ttl : 5000,
+            // callbacks
+            onClose : function() { return false; },
+            onOpen : function() { return false; }
+          });
+          notification.show();
+        }
+
+        $(document).ready(function(){
+          notif("Assalamu'alaikum");
+        });
+    </script>
+
+</body>
+
+</html>
